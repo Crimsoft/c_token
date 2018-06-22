@@ -16,26 +16,50 @@
       "type": "function"
     },
     {
-      "inputs": [],
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "balanceOf",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "name": "_initialSupply",
+          "type": "uint256"
+        }
+      ],
       "payable": false,
       "stateMutability": "nonpayable",
       "type": "constructor"
     }
   ],
-  "bytecode": "0x608060405234801561001057600080fd5b50620f4240600081905550609e806100296000396000f300608060405260043610603f576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806318160ddd146044575b600080fd5b348015604f57600080fd5b506056606c565b6040518082815260200191505060405180910390f35b600054815600a165627a7a72305820e9b37ea6b077c5d0d3b05f1dc551e9994424aeae66763a4a71a2f7d1cd3069cc0029",
-  "deployedBytecode": "0x608060405260043610603f576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806318160ddd146044575b600080fd5b348015604f57600080fd5b506056606c565b6040518082815260200191505060405180910390f35b600054815600a165627a7a72305820e9b37ea6b077c5d0d3b05f1dc551e9994424aeae66763a4a71a2f7d1cd3069cc0029",
-  "sourceMap": "30:184:0:-;;;149:62;8:9:-1;5:2;;;30:1;27;20:12;5:2;149:62:0;196:7;182:11;:21;;;;30:184;;;;;;",
-  "deployedSourceMap": "30:184:0:-;;;;;;;;;;;;;;;;;;;;;;;;94:26;;8:9:-1;5:2;;;30:1;27;20:12;5:2;94:26:0;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
-  "source": "pragma solidity ^0.4.24;\r\n\r\n\r\ncontract DappToken {\r\n\r\n    // read total number of tokens\r\n    uint256 public totalSupply;\r\n\r\n    // constructor\r\n    constructor () public {\r\n        totalSupply = 1000000;\r\n    }\r\n}",
+  "bytecode": "0x608060405234801561001057600080fd5b5060405160208061015e8339810180604052810190808051906020019092919050505080600081905550506101148061004a6000396000f3006080604052600436106049576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806318160ddd14604e57806370a08231146076575b600080fd5b348015605957600080fd5b50606060ca565b6040518082815260200191505060405180910390f35b348015608157600080fd5b5060b4600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505060d0565b6040518082815260200191505060405180910390f35b60005481565b600160205280600052604060002060009150905054815600a165627a7a723058206c97efe134225e50535d134bec9b9c279fd0217fe5cac031dc6669d96bc4606c0029",
+  "deployedBytecode": "0x6080604052600436106049576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806318160ddd14604e57806370a08231146076575b600080fd5b348015605957600080fd5b50606060ca565b6040518082815260200191505060405180910390f35b348015608157600080fd5b5060b4600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505060d0565b6040518082815260200191505060405180910390f35b60005481565b600160205280600052604060002060009150905054815600a165627a7a723058206c97efe134225e50535d134bec9b9c279fd0217fe5cac031dc6669d96bc4606c0029",
+  "sourceMap": "30:265:0:-;;;202:90;8:9:-1;5:2;;;30:1;27;20:12;5:2;202:90:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;270:14;256:11;:28;;;;202:90;30:265;;;;;;",
+  "deployedSourceMap": "30:265:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;94:26;;8:9:-1;5:2;;;30:1;27;20:12;5:2;94:26:0;;;;;;;;;;;;;;;;;;;;;;;129:44;;8:9:-1;5:2;;;30:1;27;20:12;5:2;129:44:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;94:26;;;;:::o;129:44::-;;;;;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity ^0.4.24;\r\n\r\n\r\ncontract DappToken {\r\n\r\n    // read total number of tokens\r\n    uint256 public totalSupply;\r\n\r\n    mapping(address => uint256) public balanceOf;\r\n\r\n    // constructor\r\n    constructor (uint _initialSupply) public {\r\n\r\n        totalSupply = _initialSupply;\r\n    }\r\n}",
   "sourcePath": "C:\\Users\\sinda\\c_token\\contracts\\DappToken.sol",
   "ast": {
     "absolutePath": "/C/Users/sinda/c_token/contracts/DappToken.sol",
     "exportedSymbols": {
       "DappToken": [
-        12
+        18
       ]
     },
-    "id": 13,
+    "id": 19,
     "nodeType": "SourceUnit",
     "nodes": [
       {
@@ -55,9 +79,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 12,
+        "id": 18,
         "linearizedBaseContracts": [
-          12
+          18
         ],
         "name": "DappToken",
         "nodeType": "ContractDefinition",
@@ -67,7 +91,7 @@
             "id": 3,
             "name": "totalSupply",
             "nodeType": "VariableDeclaration",
-            "scope": 12,
+            "scope": 18,
             "src": "94:26:0",
             "stateVariable": true,
             "storageLocation": "default",
@@ -89,27 +113,72 @@
             "visibility": "public"
           },
           {
+            "constant": false,
+            "id": 7,
+            "name": "balanceOf",
+            "nodeType": "VariableDeclaration",
+            "scope": 18,
+            "src": "129:44:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+              "typeString": "mapping(address => uint256)"
+            },
+            "typeName": {
+              "id": 6,
+              "keyType": {
+                "id": 4,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "137:7:0",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "129:27:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                "typeString": "mapping(address => uint256)"
+              },
+              "valueType": {
+                "id": 5,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "148:7:0",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
             "body": {
-              "id": 10,
+              "id": 16,
               "nodeType": "Block",
-              "src": "171:40:0",
+              "src": "243:49:0",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 8,
+                    "id": 14,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 6,
+                      "id": 12,
                       "name": "totalSupply",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 3,
-                      "src": "182:11:0",
+                      "src": "256:11:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -119,36 +188,31 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "hexValue": "31303030303030",
-                      "id": 7,
-                      "isConstant": false,
-                      "isLValue": false,
-                      "isPure": true,
-                      "kind": "number",
-                      "lValueRequested": false,
-                      "nodeType": "Literal",
-                      "src": "196:7:0",
-                      "subdenomination": null,
+                      "id": 13,
+                      "name": "_initialSupply",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 9,
+                      "src": "270:14:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_rational_1000000_by_1",
-                        "typeString": "int_const 1000000"
-                      },
-                      "value": "1000000"
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
                     },
-                    "src": "182:21:0",
+                    "src": "256:28:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 9,
+                  "id": 15,
                   "nodeType": "ExpressionStatement",
-                  "src": "182:21:0"
+                  "src": "256:28:0"
                 }
               ]
             },
             "documentation": null,
-            "id": 11,
+            "id": 17,
             "implemented": true,
             "isConstructor": true,
             "isDeclaredConst": false,
@@ -156,39 +220,66 @@
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 4,
+              "id": 10,
               "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "161:2:0"
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9,
+                  "name": "_initialSupply",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 17,
+                  "src": "215:19:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 8,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "215:4:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "214:21:0"
             },
             "payable": false,
             "returnParameters": {
-              "id": 5,
+              "id": 11,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "171:0:0"
+              "src": "243:0:0"
             },
-            "scope": 12,
-            "src": "149:62:0",
+            "scope": 18,
+            "src": "202:90:0",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 13,
-        "src": "30:184:0"
+        "scope": 19,
+        "src": "30:265:0"
       }
     ],
-    "src": "0:214:0"
+    "src": "0:295:0"
   },
   "legacyAST": {
     "absolutePath": "/C/Users/sinda/c_token/contracts/DappToken.sol",
     "exportedSymbols": {
       "DappToken": [
-        12
+        18
       ]
     },
-    "id": 13,
+    "id": 19,
     "nodeType": "SourceUnit",
     "nodes": [
       {
@@ -208,9 +299,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 12,
+        "id": 18,
         "linearizedBaseContracts": [
-          12
+          18
         ],
         "name": "DappToken",
         "nodeType": "ContractDefinition",
@@ -220,7 +311,7 @@
             "id": 3,
             "name": "totalSupply",
             "nodeType": "VariableDeclaration",
-            "scope": 12,
+            "scope": 18,
             "src": "94:26:0",
             "stateVariable": true,
             "storageLocation": "default",
@@ -242,27 +333,72 @@
             "visibility": "public"
           },
           {
+            "constant": false,
+            "id": 7,
+            "name": "balanceOf",
+            "nodeType": "VariableDeclaration",
+            "scope": 18,
+            "src": "129:44:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+              "typeString": "mapping(address => uint256)"
+            },
+            "typeName": {
+              "id": 6,
+              "keyType": {
+                "id": 4,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "137:7:0",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "129:27:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                "typeString": "mapping(address => uint256)"
+              },
+              "valueType": {
+                "id": 5,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "148:7:0",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
             "body": {
-              "id": 10,
+              "id": 16,
               "nodeType": "Block",
-              "src": "171:40:0",
+              "src": "243:49:0",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 8,
+                    "id": 14,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 6,
+                      "id": 12,
                       "name": "totalSupply",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 3,
-                      "src": "182:11:0",
+                      "src": "256:11:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -272,36 +408,31 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "hexValue": "31303030303030",
-                      "id": 7,
-                      "isConstant": false,
-                      "isLValue": false,
-                      "isPure": true,
-                      "kind": "number",
-                      "lValueRequested": false,
-                      "nodeType": "Literal",
-                      "src": "196:7:0",
-                      "subdenomination": null,
+                      "id": 13,
+                      "name": "_initialSupply",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 9,
+                      "src": "270:14:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_rational_1000000_by_1",
-                        "typeString": "int_const 1000000"
-                      },
-                      "value": "1000000"
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
                     },
-                    "src": "182:21:0",
+                    "src": "256:28:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 9,
+                  "id": 15,
                   "nodeType": "ExpressionStatement",
-                  "src": "182:21:0"
+                  "src": "256:28:0"
                 }
               ]
             },
             "documentation": null,
-            "id": 11,
+            "id": 17,
             "implemented": true,
             "isConstructor": true,
             "isDeclaredConst": false,
@@ -309,30 +440,57 @@
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 4,
+              "id": 10,
               "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "161:2:0"
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9,
+                  "name": "_initialSupply",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 17,
+                  "src": "215:19:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 8,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "215:4:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "214:21:0"
             },
             "payable": false,
             "returnParameters": {
-              "id": 5,
+              "id": 11,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "171:0:0"
+              "src": "243:0:0"
             },
-            "scope": 12,
-            "src": "149:62:0",
+            "scope": 18,
+            "src": "202:90:0",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 13,
-        "src": "30:184:0"
+        "scope": 19,
+        "src": "30:265:0"
       }
     ],
-    "src": "0:214:0"
+    "src": "0:295:0"
   },
   "compiler": {
     "name": "solc",
@@ -342,10 +500,10 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0xf643839054870f2a27f9953140b1f874658753e0",
-      "transactionHash": "0x38d8c617f5fabf0ab1eec53d24f559dc634baf3fdc967829debaa3d18191264a"
+      "address": "0x76179efc4b1a10519b5b4e9b9e843b279983eeb3",
+      "transactionHash": "0x900ba1c5df713e2a47a679f39dc95321f35a040a1cf8a1b1374754849f886526"
     }
   },
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-06-20T09:34:25.146Z"
+  "updatedAt": "2018-06-22T13:48:59.200Z"
 }
